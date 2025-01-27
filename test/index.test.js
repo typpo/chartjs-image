@@ -8,7 +8,10 @@ test('basic chart, no auth', () => {
   const qc = new ChartJsImage();
   qc.setConfig({
     type: 'bar',
-    data: { labels: ['Hello world', 'Foo bar'], datasets: [{ label: 'Foo', data: [1, 2] }] },
+    data: {
+      labels: ['Hello world', 'Foo bar'],
+      datasets: [{ label: 'Foo', data: [1, 2] }],
+    },
   });
 
   expect(qc.getUrl()).toContain('Hello+world');
@@ -22,7 +25,27 @@ test('basic chart, width and height', () => {
   const qc = new ChartJsImage();
   qc.setConfig({
     type: 'bar',
-    data: { labels: ['Hello world', 'Foo bar'], datasets: [{ label: 'Foo', data: [1, 2] }] },
+    data: {
+      labels: ['Hello world', 'Foo bar'],
+      datasets: [{ label: 'Foo', data: [1, 2] }],
+    },
+  });
+
+  qc.setWidth(800).setHeight(500);
+
+  expect(qc.getUrl()).toContain('Hello+world');
+  expect(qc.getUrl()).toContain('w=800');
+  expect(qc.getUrl()).toContain('h=500');
+});
+
+test('basic chart, width and height', () => {
+  const qc = new ChartJsImage();
+  qc.setConfig({
+    type: 'bar',
+    data: {
+      labels: ['Hello world', 'Foo bar'],
+      datasets: [{ label: 'Foo', data: [1, 2] }],
+    },
   });
 
   qc.setWidth(800).setHeight(500);
@@ -36,7 +59,10 @@ test('basic chart, other params', () => {
   const qc = new ChartJsImage();
   qc.setConfig({
     type: 'bar',
-    data: { labels: ['Hello world', 'Foo bar'], datasets: [{ label: 'Foo', data: [1, 2] }] },
+    data: {
+      labels: ['Hello world', 'Foo bar'],
+      datasets: [{ label: 'Foo', data: [1, 2] }],
+    },
   });
 
   qc.setBackgroundColor('#000000').setDevicePixelRatio(2.0).setFormat('svg');
@@ -51,7 +77,10 @@ test('basic chart, version', () => {
   const qc = new ChartJsImage();
   qc.setConfig({
     type: 'bar',
-    data: { labels: ['Hello world', 'Foo bar'], datasets: [{ label: 'Foo', data: [1, 2] }] },
+    data: {
+      labels: ['Hello world', 'Foo bar'],
+      datasets: [{ label: 'Foo', data: [1, 2] }],
+    },
   });
   qc.setChartJsVersion('3.9.1');
 
@@ -95,7 +124,10 @@ test('postdata for basic chart, no auth', () => {
   const qc = new ChartJsImage();
   qc.setConfig({
     type: 'bar',
-    data: { labels: ['Hello world', 'Foo bar'], datasets: [{ label: 'Foo', data: [1, 2] }] },
+    data: {
+      labels: ['Hello world', 'Foo bar'],
+      datasets: [{ label: 'Foo', data: [1, 2] }],
+    },
   });
 
   const postData = qc.getPostData();
@@ -111,7 +143,10 @@ test('postdata for basic chart with params', () => {
   const qc = new ChartJsImage();
   qc.setConfig({
     type: 'bar',
-    data: { labels: ['Hello world', 'Foo bar'], datasets: [{ label: 'Foo', data: [1, 2] }] },
+    data: {
+      labels: ['Hello world', 'Foo bar'],
+      datasets: [{ label: 'Foo', data: [1, 2] }],
+    },
   });
 
   qc.setWidth(400)
@@ -185,7 +220,10 @@ test('getShortUrl for chart, no auth', async () => {
   const qc = new ChartJsImage();
   qc.setConfig({
     type: 'bar',
-    data: { labels: ['Hello world', 'Foo bar'], datasets: [{ label: 'Foo', data: [1, 2] }] },
+    data: {
+      labels: ['Hello world', 'Foo bar'],
+      datasets: [{ label: 'Foo', data: [1, 2] }],
+    },
   });
 
   await expect(qc.getShortUrl()).resolves.toEqual(mockResp.data.url);
@@ -201,7 +239,10 @@ test('getShortUrl for chart bad status code', async () => {
   const qc = new ChartJsImage();
   qc.setConfig({
     type: 'bar',
-    data: { labels: ['Hello world', 'Foo bar'], datasets: [{ label: 'Foo', data: [1, 2] }] },
+    data: {
+      labels: ['Hello world', 'Foo bar'],
+      datasets: [{ label: 'Foo', data: [1, 2] }],
+    },
   });
 
   await expect(qc.getShortUrl()).rejects.toContain('Bad response code');
@@ -220,7 +261,10 @@ test('getShortUrl api failure', async () => {
   const qc = new ChartJsImage();
   qc.setConfig({
     type: 'bar',
-    data: { labels: ['Hello world', 'Foo bar'], datasets: [{ label: 'Foo', data: [1, 2] }] },
+    data: {
+      labels: ['Hello world', 'Foo bar'],
+      datasets: [{ label: 'Foo', data: [1, 2] }],
+    },
   });
 
   await expect(qc.getShortUrl()).rejects.toContain('failure response');
@@ -237,7 +281,10 @@ test('toBinary, no auth', async () => {
   const qc = new ChartJsImage();
   qc.setConfig({
     type: 'bar',
-    data: { labels: ['Hello world', 'Foo bar'], datasets: [{ label: 'Foo', data: [1, 2] }] },
+    data: {
+      labels: ['Hello world', 'Foo bar'],
+      datasets: [{ label: 'Foo', data: [1, 2] }],
+    },
   });
 
   await expect(qc.toBinary()).resolves.toEqual(mockResp.data);
@@ -254,7 +301,10 @@ test('toBinary, no auth', async () => {
   const qc = new ChartJsImage();
   qc.setConfig({
     type: 'bar',
-    data: { labels: ['Hello world', 'Foo bar'], datasets: [{ label: 'Foo', data: [1, 2] }] },
+    data: {
+      labels: ['Hello world', 'Foo bar'],
+      datasets: [{ label: 'Foo', data: [1, 2] }],
+    },
   });
 
   await expect(qc.toDataUrl()).resolves.toEqual('data:image/png;base64,bWVvdw==');
