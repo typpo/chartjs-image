@@ -11,16 +11,11 @@
     "format": "prettier --single-quote --trailing-comma all --print-width 100 --write \"**/*.js\""
   },
   "dependencies": {
-    "axios": "^1.6.0",
+    "axios": "^1.7.9",
     "javascript-stringify": "^2.1.0"
   },
   "devDependencies": {
-    "jest": "^27.4.3",
-    "prettier": "^2.0.5"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "axios": "axios/dist/node/axios.cjs"
-    }
+    "jest": "^29.7.0",
+    "prettier": "^3.4.2"
   }
 }
